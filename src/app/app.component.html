@@ -1,12 +1,11 @@
 <!--Top image-->
-<header>
+<header class="animate-fade-in-down">
   <div class="w-full bg-cover bg-center h-imageH"
-       style="background-image: url(./assets/coverPhoto.jpg);">
+       style="background-image: url(./assets/cover.jpeg);">
   </div>
 </header>
-
 <!-- Description & Names -->
-<div>
+<div class="animate-fade-in-down2">
   <div class="flex flex-col items-center">
     <div class="mt-6 ml-16 text-6xl font-dancingScript opacity-100">You are warmly invited to the wedding of</div>
     <div class="flex-initial font-bodyLuci text-9xl tracking-wide my-6">
@@ -48,7 +47,7 @@
 </div>
 <div class="flex flex-col items-center w-full mb-10">
   <button *ngIf="true"
-          class="bg-transparent hover:bg-yellow-600 text-yellow-700 font-semibold hover:text-white py-3 px-8 border border-yellow-700 hover:border-transparent rounded"
+          class="animate-bounce bg-transparent hover:bg-yellow-600 text-yellow-700 font-semibold hover:text-white py-3 px-8 border border-yellow-700 hover:border-transparent rounded"
           (click)="onClick('clicked')">RSVP
   </button>
 </div>
