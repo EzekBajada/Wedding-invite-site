@@ -5,6 +5,16 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    extend: {
+      fontFamily: {
+        body: ['"Wedding Dream Demo"'],
+        bodyLuci: ['"Lucy Said Ok Personal Use"'],
+        bodyShalma: ['shalma']
+      },
+      height: theme => ({
+        "imageH": "30rem",
+      }),
+    },
     screens: {
       sm: '50px',
       md: '768px',
@@ -242,6 +252,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'proxima',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
@@ -269,6 +280,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      body: ['']
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],

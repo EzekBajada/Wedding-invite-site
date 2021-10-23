@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Wedding Dream Demo';
+    src: url('WeddingDreamDemoRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lucy Said Ok Personal Use';
+  src: url('LucySaidOkPersonalUse-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'shalma';
+  src: url('shalma.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

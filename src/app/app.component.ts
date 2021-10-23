@@ -9,7 +9,6 @@ import {Names} from './environment/globalVariables'
 export class AppComponent {
   firstName: string;
   secondName: string;
-  buttonName: string = 'RSVP';
 
   constructor() {
     this.firstName = Names.firstName;
@@ -17,6 +16,6 @@ export class AppComponent {
   }
 
   onClick(name: string) {
-    this.buttonName = name;
+    //this.buttonName = name;
   }
 }

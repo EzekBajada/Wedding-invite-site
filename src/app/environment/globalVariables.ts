@@ -1,4 +1,4 @@
 export class Names {
-  static firstName: string = 'SYLVANA';
-  static secondName: string = 'EZEKIEL';
+  static firstName: string = 'Sylvana';
+  static secondName: string = 'Ezekiel';
 }

@@ -1,20 +1,22 @@
-<!--Image-->
+<!--Top image-->
 <header>
-  <div class="w-full bg-cover bg-center h-80"
-       style="background-image: url(https://i.pinimg.com/originals/e9/25/94/e925941e2b5c361476176810c0a532c0.jpg);">
+  <div class="w-full bg-cover bg-center h-imageH"
+       style="background-image: url(./assets/coverPhoto.jpg);">
   </div>
 </header>
 
-<!--Names -->
-<div class="bg-grayBackground-light h-screen">
-  <div class="flex flex-col space-y-3 justify-center items-center">
-    <div class="flex-initial text-yellow-600 font-serif text-6xl my-6">
+<!-- Description & Names -->
+<div>
+  <div class="flex flex-col items-center">
+    <div class="font-mono mt-6 ml-16 text-2xl">You are warmly invited to the wedding of</div>
+    <div class="flex-initial font-bodyLuci text-9xl tracking-wide my-6">
       {{firstName}}
     </div>
-    <div class="flex-initial text-yellow-600 font-serif text-6xl">
+    <div class="font-bodyLuci text-7xl">&</div>
+    <div class="flex-initial font-bodyLuci text-9xl tracking-wide my-6">
       {{secondName}}
     </div>
-    <button class="rounded-2xl bg-yellow-600 p-3" (click)="onClick('clicked')">
+    <button *ngIf="false" class="rounded-2xl bg-yellow-600 p-3"  (click)="onClick('clicked')">
       RSVP
     </button>
   </div>
