@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Names} from './environment/globalVariables'
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,8 @@ export class AppComponent {
   buttonName: string = 'RSVP';
 
   constructor() {
-    this.firstName = 'SYLVANA ZAHRA';
-    this.secondName = 'EZEKIEL BAJADA';
+    this.firstName = Names.firstName;
+    this.secondName = Names.secondName;
   }
 
   onClick(name: string) {
