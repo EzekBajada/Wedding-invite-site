@@ -9,11 +9,16 @@ module.exports = {
       fontFamily: {
         body: ['"Wedding Dream Demo"'],
         bodyLuci: ['"Lucy Said Ok Personal Use"'],
-        bodyShalma: ['shalma']
+        bodyShalma: ['shalma'],
+        weddingInfo: ['"Blackberry Jam Personal Use"'],
+        dancingScript: ['"Dancing Script"']
       },
       height: theme => ({
         "imageH": "30rem",
       }),
+      fontSize : {
+        smallWedding: ['50px', { lineHeight: '10px' }]
+      }
     },
     screens: {
       sm: '50px',
