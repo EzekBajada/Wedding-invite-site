@@ -7,13 +7,13 @@
 <!-- Description & Names -->
 <div class="animate-fade-in-down2">
   <div class="flex flex-col items-center">
-    <div class="mt-6 ml-16 text-6xl font-dancingScript opacity-100">You are warmly invited to the wedding of</div>
+    <div class="mt-6 ml-16 text-6xl font-dancingScript opacity-100">{{weddingInfo.invitationMessage}}</div>
     <div class="flex-initial font-bodyLuci text-9xl tracking-wide my-6">
-      {{firstName}}
+      {{weddingInfo.bridesName}}
     </div>
     <div class="font-bodyLuci text-7xl">&</div>
     <div class="flex-initial font-bodyLuci text-9xl tracking-wide my-6">
-      {{secondName}}
+      {{weddingInfo.groomsName}}
     </div>
     <hr class="mt-10" style=" border-top: 8px solid #b8860b; border-radius: 5px; width: 75%;">
   </div>
@@ -21,26 +21,26 @@
   <div class="relative wrap overflow-hidden p-10 h-full">
     <!--first item-->
     <div class="mb-8 flex justify-between items-center w-full right-timeline">
-      <div class="order-1 w-5/12  text-center align-middle text-4xl font-dancingScript">Ceremony at Xaghra basilica</div>
+      <div class="order-1 w-5/12  text-center align-middle text-4xl font-dancingScript">Ceremony at {{weddingInfo.ceremonyVenue}}</div>
       <!--circle-->
       <div class="z-20 flex items-center order-1  ml-0.5 text-5xl">
         <fa-icon style="color: darkgoldenrod;" [icon]="faChurch"></fa-icon>
       </div>
       <!--icon-->
       <div class="order-1 rounded-lg w-5/12 py-4 text-center align-middle text-2xl font-dancingScript">
-        5:00 p.m.
+        {{weddingInfo.ceremonyTime}}
       </div>
     </div>
 
     <div class="mb-8 flex justify-between items-center w-full right-timeline">
-      <div class="order-1 w-5/12  text-center align-middle text-4xl font-dancingScript">Reception at Villa Fiorita</div>
+      <div class="order-1 w-5/12  text-center align-middle text-4xl font-dancingScript">Reception at {{weddingInfo.receptionVenue}}</div>
       <!--circle-->
       <div class="z-20 flex items-center order-1  ml-0.5 text-5xl">
         <fa-icon style="color: darkgoldenrod;" [icon]="faGlassCheers"></fa-icon>
       </div>
       <!--icon-->
       <div class="order-1 rounded-lg w-5/12 py-4 text-center align-middle text-2xl font-dancingScript">
-        6:30 p.m.
+        {{weddingInfo.receptionTime}}
       </div>
     </div>
   </div>

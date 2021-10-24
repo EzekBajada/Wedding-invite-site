@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Names} from './environment/globalVariables'
+import {weddingInfo} from './environment/models'
 import {faChurch, faGlassCheers} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -8,13 +8,11 @@ import {faChurch, faGlassCheers} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  firstName: string;
-  secondName: string;
+  weddingInfo: any;
   faChurch: any = faChurch;
   faGlassCheers: any = faGlassCheers;
   constructor() {
-    this.firstName = Names.firstName;
-    this.secondName = Names.secondName;
+    this.weddingInfo = weddingInfo;
   }
 
   onClick(name: string) {
