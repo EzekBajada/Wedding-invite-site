@@ -1,7 +1,11 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: [],
+  mode: 'jit',
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.{html,ts}']
+  },
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -150,6 +154,8 @@ module.exports = {
     backgroundColor: (theme) => theme('colors'),
     backgroundImage: {
       none: 'none',
+      'couplecover': 'url(./assets/cover.jpeg)',
+      'petalsCover': 'url(./assets/petalsCover.png)',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
       'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
       'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
