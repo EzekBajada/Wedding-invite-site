@@ -37,3 +37,11 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Moon Bold';
+  src: url('Moon-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
