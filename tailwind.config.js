@@ -65,7 +65,8 @@ module.exports = {
         bodyLuci: ['"Lucy Said Ok Personal Use"'],
         bodyShalma: ['shalma'],
         weddingInfo: ['"Blackberry Jam Personal Use"'],
-        dancingScript: ['"Dancing Script"']
+        dancingScript: ['"Dancing Script"'],
+        moonBold: ['"Moon Bold"']
       },
       height: theme => ({
         "imageH": "1000px",
