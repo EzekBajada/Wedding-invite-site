@@ -7,3 +7,7 @@ export const weddingInfo = {
     receptionVenue: 'Villa Fiorita',
     receptionTime: '6:30 p.m.'
 }
+
+export const apiUrls = {
+   GetAllGuests: 'https://localhost:5001/Guests'
+}

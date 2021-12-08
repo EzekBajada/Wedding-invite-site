@@ -1,0 +1,49 @@
+<!--Top image-->
+<div class="w-full bg-couplecover bg-center bg-cover h-1/2"></div>
+
+<div class="animate-fade-in-down2 bg-center bg-cover bg-petalsCover">
+  <div class="flex flex-col h-1/3 items-center space-y-2">
+    <div class="text-2xl font-moonBold opacity-100">{{weddingInfo.invitationMessage}}</div>
+    <div class="font-moonBold  text-4xl">
+      {{weddingInfo.bridesName}}
+    </div>
+    <div class="font-moonBold  text-3xl">&</div>
+    <div class="font-moonBold  text-4xl">
+      {{weddingInfo.groomsName}}
+    </div>
+    <!--    <hr class="mt-10 w-[75%] border-[#b8860b] rounded-[5px] border-t-[8px]">-->
+  </div>
+  <div class="h-1/3">
+    <div class="mb-8 flex justify-between items-center h-1/3">
+      <div class="order-1 w-5/12 text-center align-middle text-4xl font-dancingScript h-full">Ceremony
+        at {{weddingInfo.ceremonyVenue}}</div>
+      <!--circle-->
+      <div class="z-20 items-center order-1 ml-0.5 text-2xl h-full">
+        <fa-icon class="text-[darkgoldenrod]" [icon]="faChurch"></fa-icon>
+      </div>
+      <!--icon-->
+      <div class="order-1 rounded-lg w-5/12 py-4 text-center align-middle text-2xl font-dancingScript h-full">
+        {{weddingInfo.ceremonyTime}}
+      </div>
+    </div>
+    <div class="flex justify-between items-center h-1/3">
+      <div class="order-1 w-5/12  text-center align-middle text-4xl font-dancingScript h-full">Reception
+        at {{weddingInfo.receptionVenue}}</div>
+      <!--circle-->
+      <div class="z-20 items-center order-1 ml-0.5 text-2xl h-full">
+        <fa-icon class="text-[darkgoldenrod]" [icon]="faGlassCheers"></fa-icon>
+      </div>
+      <!--icon-->
+      <div class="order-1 rounded-lg w-5/12 py-4 text-center align-middle text-2xl font-dancingScript h-full">
+        {{weddingInfo.receptionTime}}
+      </div>
+    </div>
+
+  </div>
+  <div class="flex flex-col items-center pt-10 h-1/3">
+    <button *ngIf="true"
+            class="animate-bounce bg-transparent hover:bg-yellow-600 text-yellow-700 font-semibold hover:text-white py-3 px-8 border border-yellow-700 hover:border-transparent rounded"
+            (click)="onClick('clicked')">RSVP
+    </button>
+  </div>
+</div>
