@@ -11,3 +11,9 @@ export const weddingInfo = {
 export const apiUrls = {
    GetAllGuests: 'https://localhost:5001/Guests'
 }
+
+export const FacebookConfig = {
+  AppId: '283993523753600',
+  AppSecret: '998cdd8e63b5f747b5c14126065f3fa1'
+}
+
