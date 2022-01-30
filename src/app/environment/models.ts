@@ -1,7 +1,7 @@
 export const weddingInfo = {
     bridesName: 'Sylvana',
     groomsName: 'Ezekiel',
-    invitationMessage: 'You are warmly invited to the wedding of',
+    invitationMessage: "We can't wait to share our special day with you. Help us capture our wedding with joy!",
     ceremonyVenue: 'Xaghra basilica',
     ceremonyTime: '5:00 p.m.',
     receptionVenue: 'Villa Fiorita',
@@ -9,7 +9,7 @@ export const weddingInfo = {
 }
 
 export const apiUrls = {
-   GetAllGuests: 'https://localhost:5001/Guests'
+   GetAllGuestsLocal: 'https://localhost:5001/Guests'
 }
 
 export const FacebookConfig = {

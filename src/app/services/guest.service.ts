@@ -12,6 +12,6 @@ export class GuestService {
   constructor(private httpClient: HttpClient) { }
 
   public getAllGuests(): Observable<Guest[]>{
-    return this.httpClient.get<Guest[]>(apiUrls.GetAllGuests);
+    return this.httpClient.get<Guest[]>(apiUrls.GetAllGuestsLocal);
   }
 }

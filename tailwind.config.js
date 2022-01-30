@@ -73,11 +73,14 @@ module.exports = {
       }),
       fontSize : {
         smallWedding: ['50px', { lineHeight: '10px' }]
-      }
+      },
+      backgroundImage: (theme) => ({
+        photo: "url('src/assets/cover.jpeg')",
+      })
     },
     screens: {
       sm: '50px',
-      md: '768px',
+      md: '412px',
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
@@ -157,6 +160,7 @@ module.exports = {
       none: 'none',
       'couplecover': 'url(./assets/cover.jpeg)',
       'petalsCover': 'url(./assets/petalsCover.png)',
+      'mountains': 'url(./assets/mountains.png)',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
       'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
       'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
