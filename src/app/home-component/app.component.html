@@ -1,25 +1,33 @@
 <!--  Invitation Message-->
-<div class="lg:flex animate-fade-in-down2">
+<div class="lg:flex animate-fade-in-down2 {{this.rsvpTriggered ? 'blur-3xl' : ''}}">
   <div class="w-full lg:w-1/2 h-screen bg-photo bg-cover bg-center">
     <div class="absolute inset-x-0 bottom-0 flex flex-col lg:w-1/2">
-      <div class="text-white font-bodyLuci ml-6 text-6xl lg:text-9xl lg:ml-10">
+      <div class="text-white font-bodyLuci ml-6 text-6xl lg:text-8xl lg:ml-10">
         <div>{{weddingInfo.bridesName}}</div>
         <div class="mb-9"><span>&</span> {{weddingInfo.groomsName}}</div>
-        <div class="font-mono text-base lg:text-4xl mb-9 mr-9">{{weddingInfo.invitationMessage}}</div>
+        <div class="font-mono text-base lg:text-2xl mb-9 mr-9">{{weddingInfo.invitationMessage}}</div>
       </div>
     </div>
   </div>
 
   <!--  RSVP Button Information-->
   <div class="w-full lg:w-1/2 h-screen bg-mountains bg-cover bg-center flex flex-col justify-center items-center">
-    <div class="text-yellow-800 text-4xl lg:text-7xl font-moonBold p-2">{{weddingInfo.ceremonyVenue}}</div>
+    <div class="text-yellow-800 text-4xl lg:text-4xl font-moonBold p-2">{{weddingInfo.ceremonyVenue}}</div>
     <div class="text-yellow-800 text-sm lg:text-2xl font-moonBold p-2">{{weddingInfo.ceremonyTime}}</div>
     <div class="text-yellow-800 text-2xl lg:text-4xl font-moonBold p-2">{{weddingInfo.receptionVenue}}</div>
     <div class="text-yellow-800 text-sm lg:text-2xl font-moonBold p-2">{{weddingInfo.receptionTime}}</div>
 
-    <button class="animate-bounce mt-6 bg-transparent hover:bg-yellow-600 text-white font-moonBold hover:text-white py-2 px-4 border border-yellow-800 hover:border-transparent rounded">
+    <button class="animate-bounce mt-6 bg-transparent hover:bg-yellow-600 text-white font-moonBold hover:text-white py-2
+      px-4 border border-yellow-800 hover:border-transparent rounded" (click)="onClick(1)">
       RSVP
     </button>
   </div>
 </div>
 
+<div *ngIf="rsvpTriggered" class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
+  <div class="bg-white px-16 py-14 rounded-md text-center">
+    <h1 class="text-xl mb-4 font-bold text-slate-500">Enter </h1>
+    <button class="bg-indigo-500 px-4 py-2 rounded-md text-md text-white" (click)="onClick(1)">Cancel</button>
+    <button class="bg-red-500 px-7 py-2 ml-2 rounded-md text-md text-white font-semibold" (click)="onClick(2)">Ok</button>
+  </div>
+</div>

@@ -10,6 +10,8 @@ import { LoginComponent } from './login-component/login.component';
 import {RouterModule} from "@angular/router";
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RsvpComponent } from './rsvp/rsvp.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 let config = new AuthServiceConfig([
 {
@@ -27,7 +29,8 @@ export function provideConfig()
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    RsvpComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ export function provideConfig()
     HttpClientModule,
     SocialLoginModule.initialize(config),
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule
   ],
   providers: [
     {

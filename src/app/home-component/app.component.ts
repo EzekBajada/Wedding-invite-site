@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {weddingInfo} from '../environment/models'
-import {faChurch, faGlassCheers} from '@fortawesome/free-solid-svg-icons';
 import {GuestService} from "../services/guest.service";
 import {Guest} from "../models/Guest";
+import {RsvpAction} from "../models/enums";
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,7 @@ import {Guest} from "../models/Guest";
 })
 export class AppComponent {
   weddingInfo: any;
-  faChurch: any = faChurch;
-  faGlassCheers: any = faGlassCheers;
+  rsvpTriggered: boolean = false;
   guests: Guest[] = [];
 
   constructor(private guestService: GuestService) {
@@ -22,7 +21,12 @@ export class AppComponent {
     })
   }
 
-  onClick(name: string) {
-    //this.buttonName = name;
+  onClick(rsvpAction: RsvpAction) {
+    switch (rsvpAction) {
+      case RsvpAction.Trigger:
+        this.rsvpTriggered = !this.rsvpTriggered;break;
+      case RsvpAction.Submit:
+        this.rsvpTriggered = !this.rsvpTriggered;break;
+    }
   }
 }
