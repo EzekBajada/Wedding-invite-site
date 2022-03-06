@@ -75,7 +75,7 @@ module.exports = {
         smallWedding: ['50px', { lineHeight: '10px' }]
       },
       backgroundImage: (theme) => ({
-        photo: "url('src/assets/cover.jpeg')",
+        photo: "url('src/assets/cover.jpg')",
       })
     },
     screens: {

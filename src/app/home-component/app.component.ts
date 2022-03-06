@@ -3,6 +3,7 @@ import {weddingInfo} from '../environment/models'
 import {GuestService} from "../services/guest.service";
 import {Guest} from "../models/Guest";
 import {RsvpAction} from "../models/enums";
+import {WeddingInfo} from "../models/WeddingInfo";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import {RsvpAction} from "../models/enums";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  weddingInfo: any;
+  weddingInfo: WeddingInfo;
   rsvpTriggered: boolean = false;
   guests: Guest[] = [];
 

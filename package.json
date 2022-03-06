@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "angularx-social-login": "^2.2.1",
+    "moment": "^2.29.1",
     "rxjs": "~6.6.0",
     "tailwindcss": "^2.2.15",
     "tslib": "^2.3.0",

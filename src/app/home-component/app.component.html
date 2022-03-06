@@ -1,18 +1,26 @@
 <!--  Invitation Message-->
-<div class="lg:flex animate-fade-in-down2 {{this.rsvpTriggered ? 'blur-3xl' : ''}}">
-  <div class="w-full lg:w-1/2 h-screen bg-photo bg-cover bg-center">
-    <div class="absolute inset-x-0 bottom-0 flex flex-col lg:w-1/2">
-      <div class="text-white font-bodyLuci ml-6 text-6xl lg:text-8xl lg:ml-10">
-        <div>{{weddingInfo.bridesName}}</div>
-        <div class="mb-9"><span>&</span> {{weddingInfo.groomsName}}</div>
-        <div class="font-mono text-base lg:text-2xl mb-9 mr-9">{{weddingInfo.invitationMessage}}</div>
-      </div>
+<div class="flex animate-fade-in-down2 {{this.rsvpTriggered ? 'blur-3xl' : ''}}">
+  <div class="w-full h-screen bg-photo bg-cover bg-center">
+    <div class="flex justify-center items-center divide-x text-white font-bodyLuci ml-6 text-6xl lg:ml-10 lg:mt-10">
+        <div class="p-5">{{weddingInfo.bridesName}} <span class="font-dancingScript">&</span> {{weddingInfo.groomsName}}</div>
+        <div class="p-5">
+          <span class="mr-4 font-dancingScript text-4xl">{{weddingInfo.weddingDate.format('Do')}}</span>
+          <span class="mr-4">{{weddingInfo.weddingDate.format('MMMM')}}</span>
+          <span class="font-dancingScript text-4xl">{{weddingInfo.weddingDate.format('YYYY')}}</span>
+        </div>
+        <div class="p-5">{{weddingInfo.ceremonyVenue}}</div>
     </div>
-  </div>
 
-  <!--  RSVP Button Information-->
-  <div class="w-full lg:w-1/2 h-screen bg-mountains bg-cover bg-center flex flex-col justify-center items-center">
-    <div class="text-yellow-800 text-4xl lg:text-4xl font-moonBold p-2">{{weddingInfo.ceremonyVenue}}</div>
+    <div class="mb-12 p-5 absolute inset-x-0 bottom-0 ">
+      <div class="flex justify-center items-center">
+        <button class="bg-transparent hover:bg-yellow-600 text-white font-moonBold hover:text-white py-4
+          px-8 border border-white hover:border-transparent rounded text-4xl" (click)="onClick(1)">RSVP</button>
+      </div>
+      </div>
+  </div>
+<!--  &lt;!&ndash;  RSVP Button Information&ndash;&gt;
+  <div class="w-full h-screen bg-mountains bg-cover bg-center flex flex-col justify-center items-center">
+    <div class="text-yellow-800 text-2xl lg:text-4xl font-moonBold p-2">{{weddingInfo.ceremonyVenue}}</div>
     <div class="text-yellow-800 text-sm lg:text-2xl font-moonBold p-2">{{weddingInfo.ceremonyTime}}</div>
     <div class="text-yellow-800 text-2xl lg:text-4xl font-moonBold p-2">{{weddingInfo.receptionVenue}}</div>
     <div class="text-yellow-800 text-sm lg:text-2xl font-moonBold p-2">{{weddingInfo.receptionTime}}</div>
@@ -22,8 +30,8 @@
       RSVP
     </button>
   </div>
+</div>-->
 </div>
-
 <div *ngIf="rsvpTriggered" class="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
   <div class="bg-white px-16 py-14 rounded-md text-center">
     <h1 class="text-xl mb-4 font-bold text-slate-500">Enter </h1>
