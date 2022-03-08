@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService, FacebookLoginProvider, SocialUser} from 'angularx-social-login';
 
 @Component({
-  selector: 'app-login-component',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

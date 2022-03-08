@@ -1,14 +1,13 @@
 import {Component} from '@angular/core';
-import {weddingInfo} from '../environment/models'
-import {GuestService} from "../services/guest.service";
-import {Guest} from "../models/Guest";
-import {RsvpAction} from "../models/enums";
-import {WeddingInfo} from "../models/WeddingInfo";
+import {weddingInfo} from '../../environment/models'
+import {GuestService} from "../../services/guest.service";
+import {Guest} from "../../models/Guest";
+import {RsvpAction} from "../../models/enums";
+import {WeddingInfo} from "../../models/WeddingInfo";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.component.html',
 })
 export class AppComponent {
   weddingInfo: WeddingInfo;

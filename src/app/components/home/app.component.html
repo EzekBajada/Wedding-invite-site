@@ -1,0 +1,23 @@
+<!--  Invitation Message-->
+<div class="animate-fade-in-down2 {{this.rsvpTriggered ? 'blur-3xl' : ''}} w-screen h-screen bg-photo bg-cover bg-center">
+    <div class="lg:flex justify-center items-center lg:divide-x text-white font-bodyLuci lg:text-6xl md:text-3xl ml-6 pt-6">
+        <div class="p-2 mr-4">{{weddingInfo.bridesName}}
+          <span class="font-dancingScript">&</span> {{weddingInfo.groomsName}}
+        </div>
+        <div class="p-2 mr-4">
+          <span class="font-dancingScript">{{weddingInfo.weddingDate.format('Do')}}</span>
+          <span class="p-4">{{weddingInfo.weddingDate.format('MMMM')}}</span>
+          <span class="font-dancingScript">{{weddingInfo.weddingDate.format('YYYY')}}</span>
+        </div>
+        <div class="p-2 font-dancingScript">{{weddingInfo.ceremonyTime}}
+          <span class="font-bodyLuci">{{weddingInfo.isCeremonyInTheEvening ? 'p.m.' : 'a.m.'}}</span>
+        </div>
+    </div>
+
+    <div class="mb-12 p-5 absolute inset-x-0 bottom-0 ">
+      <div class="flex justify-center items-center">
+        <button class="bg-transparent hover:bg-yellow-600 text-white font-moonBold hover:text-white lg:py-4 md:py-2
+          lg:px-8 md:px-4 border border-white hover:border-transparent rounded lg:text-4xl md:text-2xl" (click)="onClick(1)">RSVP</button>
+      </div>
+    </div>
+</div>

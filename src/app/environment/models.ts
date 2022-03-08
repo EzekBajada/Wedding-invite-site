@@ -6,10 +6,11 @@ export const weddingInfo: WeddingInfo = {
     groomsName: 'Ezekiel',
     invitationMessage: "We can't wait to share our special day with you. Help us capture our wedding with joy!",
     ceremonyVenue: 'Xaghra Basilica',
-    ceremonyTime: '5:00 p.m.',
+    ceremonyTime: '5:00',
     receptionVenue: 'Villa Fiorita',
-    receptionTime: '6:30 p.m.',
-    weddingDate: moment('09-09-2022')
+    receptionTime: '6:30',
+    weddingDate: moment('09-09-2022'),
+    isCeremonyInTheEvening: true
 }
 
 export const apiUrls = {

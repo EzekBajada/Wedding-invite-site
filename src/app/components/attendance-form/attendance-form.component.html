@@ -1,0 +1,25 @@
+<div class="bg-slate-800 bg-opacity-50 justify-center flex items-center absolute top-0 right-0 bottom-0 left-0">
+  <div class="bg-white px-16 py-14 rounded-md">
+    <form [formGroup]="form">
+      <div>
+        <label for="name">Name on invite</label>
+        <input id="name" type="text" formControlName="name" class="border-4 border-black">
+      </div>
+      <div>
+        <label for="numberOfGuests">Number Of Guests</label>
+        <input id="numberOfGuests" type="number" formControlName="numberOfGuests" class="border-4 border-black">
+      </div>
+      <div class="flex">
+        <p>Are you attending?</p>
+        <div>
+          <input type="radio" id="yes" formControlName="attendance" value="1">
+          <label for="yes">Yes</label>
+        </div>
+        <div>
+          <input type="radio" id="no" formControlName="attendance" value="2">
+          <label for="no">No</label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

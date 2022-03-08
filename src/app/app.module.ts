@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './home-component/app.component';
+import { AppComponent } from './components/home/app.component';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HttpClientModule } from '@angular/common/http';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
 import { FacebookConfig } from "./environment/models";
-import { LoginComponent } from './login-component/login.component';
+import { LoginComponent } from './components/login/login.component';
 import {RouterModule} from "@angular/router";
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from './app-routing.module';
-import { RsvpComponent } from './rsvp/rsvp.component';
+import { RsvpComponent } from './components/rsvp/rsvp.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
 
 let config = new AuthServiceConfig([
 {
@@ -30,7 +32,8 @@ export function provideConfig()
     AppComponent,
     LoginComponent,
     MainComponent,
-    RsvpComponent
+    RsvpComponent,
+    AttendanceFormComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ export function provideConfig()
     SocialLoginModule.initialize(config),
     RouterModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
