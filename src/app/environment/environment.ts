@@ -13,12 +13,9 @@ export const weddingInfo: WeddingInfo = {
     isCeremonyInTheEvening: true
 }
 
+export const baseApiUrl = "http://localhost:5000/"
+
 export const apiUrls = {
-   GetAllGuestsLocal: 'https://localhost:5001/Guests'
+   GetAllGuests: 'Guests',
+   FindGuest: 'Guest'
 }
-
-export const FacebookConfig = {
-  AppId: '283993523753600',
-  AppSecret: '998cdd8e63b5f747b5c14126065f3fa1'
-}
-

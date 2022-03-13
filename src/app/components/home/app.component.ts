@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {weddingInfo} from '../../environment/models'
+import {weddingInfo} from '../../environment/environment'
 import {GuestService} from "../../services/guest.service";
 import {Guest} from "../../models/Guest";
 import {RsvpAction} from "../../models/enums";
@@ -28,5 +28,9 @@ export class AppComponent {
       case RsvpAction.Submit:
         this.rsvpTriggered = !this.rsvpTriggered;break;
     }
+  }
+
+  isAttendingTriggered(attending: boolean) {
+      if(!attending) this.rsvpTriggered = false;
   }
 }

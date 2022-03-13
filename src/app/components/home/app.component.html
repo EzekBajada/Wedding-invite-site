@@ -1,16 +1,16 @@
 <!--  Invitation Message-->
 <div class="animate-fade-in-down2 {{this.rsvpTriggered ? 'blur-3xl' : ''}} w-screen h-screen bg-photo bg-cover bg-center">
-    <div class="lg:flex justify-center items-center lg:divide-x text-white font-bodyLuci lg:text-6xl md:text-3xl ml-6 pt-6">
-        <div class="p-2 mr-4">{{weddingInfo.bridesName}}
-          <span class="font-dancingScript">&</span> {{weddingInfo.groomsName}}
+    <div class="lg:flex justify-center items-center lg:divide-x text-white font-moonBold lg:text-5xl md:text-2xl ml-6 pt-6">
+        <div class="px-10">{{weddingInfo.bridesName}}
+          <span class="font-moonBold text-2xl">&</span> {{weddingInfo.groomsName}}
         </div>
-        <div class="p-2 mr-4">
-          <span class="font-dancingScript">{{weddingInfo.weddingDate.format('Do')}}</span>
+        <div class="px-10">
+          <span>{{weddingInfo.weddingDate.format('Do')}}</span>
           <span class="p-4">{{weddingInfo.weddingDate.format('MMMM')}}</span>
-          <span class="font-dancingScript">{{weddingInfo.weddingDate.format('YYYY')}}</span>
+          <span>{{weddingInfo.weddingDate.format('YYYY')}}</span>
         </div>
-        <div class="p-2 font-dancingScript">{{weddingInfo.ceremonyTime}}
-          <span class="font-bodyLuci">{{weddingInfo.isCeremonyInTheEvening ? 'p.m.' : 'a.m.'}}</span>
+        <div class="px-10">{{weddingInfo.ceremonyTime}}
+          <span>{{weddingInfo.isCeremonyInTheEvening ? 'p.m.' : 'a.m.'}}</span>
         </div>
     </div>
 
@@ -21,3 +21,5 @@
       </div>
     </div>
 </div>
+
+<app-attendance-form *ngIf="rsvpTriggered" (isAttendingParent)="isAttendingTriggered($event)"></app-attendance-form>

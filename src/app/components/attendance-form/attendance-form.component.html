@@ -1,25 +1,50 @@
-<div class="bg-slate-800 bg-opacity-50 justify-center flex items-center absolute top-0 right-0 bottom-0 left-0">
-  <div class="bg-white px-16 py-14 rounded-md">
-    <form [formGroup]="form">
-      <div>
-        <label for="name">Name on invite</label>
-        <input id="name" type="text" formControlName="name" class="border-4 border-black">
-      </div>
-      <div>
-        <label for="numberOfGuests">Number Of Guests</label>
-        <input id="numberOfGuests" type="number" formControlName="numberOfGuests" class="border-4 border-black">
-      </div>
-      <div class="flex">
-        <p>Are you attending?</p>
-        <div>
-          <input type="radio" id="yes" formControlName="attendance" value="1">
-          <label for="yes">Yes</label>
+<div class="justify-center flex items-center absolute top-0 right-0 bottom-0 left-0">
+  <div class="bg-white px-16 py-14 rounded-md font-moonBold text-2xl rounded-3xl">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="isAttending">
+      <div class="pb-4">
+        <div class="pb-2">
+          <label for="name">Name on invite</label>
         </div>
-        <div>
-          <input type="radio" id="no" formControlName="attendance" value="2">
-          <label for="no">No</label>
+        <div class="relative flex items-center text-gray-400 focus-within:text-gray-600">
+          <fa-icon class="absolute ml-4 pointer-events-none" [icon]="faText"></fa-icon>
+          <input id="name" type="text" formControlName="name" class="border-2 border-black rounded-2xl p-4 pl-14">
         </div>
+      </div>
+      <div class="pb-4">
+        <div>
+          <label for="numberOfGuests">Number Of Guests</label>
+        </div>
+        <div class="relative flex items-center text-gray-400 focus-within:text-gray-600">
+          <fa-icon class="absolute ml-4 pointer-events-none" [icon]="faNumbers"></fa-icon>
+          <input id="numberOfGuests" type="number" formControlName="numberOfGuests"
+                 class="border-2 border-black rounded-2xl p-4 pl-14">
+        </div>
+
+      </div>
+      <div class="flex justify-center text-xl">
+        <button class="bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-2xl mr-4" (click)="onCancel()">
+          Cancel
+        </button>
+        <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-2xl mr-4">
+          Submit
+        </button>
       </div>
     </form>
+
+    <div *ngIf="!isAttending" class="pb-4 text-2xl">
+      <p>Are you attending?</p>
+      <div class="flex justify-center">
+        <div>
+          <button class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-2xl mr-4" (click)="toggleGuestForm(true)">
+            Yes
+          </button>
+        </div>
+        <div>
+          <button class="bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-2xl" (click)="toggleGuestForm(false)">
+            No
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
