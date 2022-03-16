@@ -17,7 +17,7 @@ export class AttendanceFormComponent implements OnInit {
 
   @Output()
   isAttendingParent = new EventEmitter<boolean>();
-  isAttending: boolean = false;
+  isAttending: any = null;
 
   constructor(private guestService: GuestService) {
     this.form = new FormGroup({
@@ -33,13 +33,13 @@ export class AttendanceFormComponent implements OnInit {
   }
 
   toggleGuestForm(attendance: boolean) {
-      this.isAttendingParent.emit(attendance);
+      this.isAttending = attendance
   }
 
   onSubmit() {
     if(this.form.valid) {
       this.guestService.findGuest(this.form.get('name')?.value).subscribe(x=> {
-          
+
       })
       this.form.reset()
     }
