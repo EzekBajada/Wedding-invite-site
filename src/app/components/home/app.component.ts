@@ -31,6 +31,6 @@ export class AppComponent {
   }
 
   isAttendingTriggered(attending: boolean) {
-      if(!attending) this.rsvpTriggered = false;
+     this.rsvpTriggered = false;
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Output, EventEmitter } from '@angular/core';
 import {faTextHeight, faSortAmountUp} from '@fortawesome/free-solid-svg-icons';
 import {GuestService} from "../../services/guest.service";
@@ -13,35 +13,40 @@ export class AttendanceFormComponent implements OnInit {
   faText = faTextHeight;
   faNumbers = faSortAmountUp
 
-  form: FormGroup;
+  form = new FormGroup({
+    name: new FormControl('', [ Validators.required ]),
+    numberOfGuests: new FormControl('', [ Validators.required, Validators.min(1), Validators.max(11) ])
+  });
 
   @Output()
   isAttendingParent = new EventEmitter<boolean>();
-  isAttending: any = null;
 
-  constructor(private guestService: GuestService) {
-    this.form = new FormGroup({
-      name: new FormControl(),
-      numberOfGuests: new FormControl()
-    });
-  }
+  isAttending: boolean = false;
 
-  ngOnInit(): void {
-    this.isAttendingParent.subscribe(x=> {
-      this.isAttending = x
-    })
-  }
+  constructor(private guestService: GuestService) {  }
+
+  ngOnInit(): void { }
 
   toggleGuestForm(attendance: boolean) {
-      this.isAttending = attendance
+      this.isAttending = attendance;
+  }
+
+  get name() {
+    return this.form.get('name');
+  }
+
+  get numberOfGuests() {
+    return this.form.get('numberOfGuests');
   }
 
   onSubmit() {
+    this.form.markAllAsTouched();
+
     if(this.form.valid) {
       this.guestService.findGuest(this.form.get('name')?.value).subscribe(x=> {
-
       })
       this.form.reset()
+      this.isAttendingParent.emit(this.isAttending);
     }
   }
 
