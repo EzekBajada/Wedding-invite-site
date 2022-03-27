@@ -42,7 +42,7 @@ export class AttendanceFormComponent implements OnInit {
   onSubmit() {
     this.form.markAllAsTouched();
 
-    if(this.form.valid) {
+    if(this.form.valid || (this.name?.valid && !this.isAttending)) {
       this.guestService.findGuest(this.form.get('name')?.value).subscribe(x=> {
       })
       this.form.reset()
