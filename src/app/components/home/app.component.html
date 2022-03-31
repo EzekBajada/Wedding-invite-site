@@ -3,19 +3,19 @@
     this.rsvpTriggered ? 'blur-3xl' : ''
   }} w-screen h-screen bg-photo bg-cover bg-center">
   <div
-    class="flex items-center justify-center font-bodyLuci text-white md:text-2xl lg:text-5xl">
+    class="pt-8 flex items-center justify-center font-bodyLuci text-white md:text-5xl lg:text-7xl">
     <div class="px-2">{{ weddingInfo.bridesName }}</div>
-    <span class="px-2 font-moonBold text-2xl">&</span>
+    <span class="px-2 pt-4 font-moonBold text-4xl">&</span>
     <div class="px-2">{{ weddingInfo.groomsName }}</div>
   </div>
   <div
-    class="ml-6 items-center justify-center pt-6 font-moonBold text-white md:text-2xl lg:flex lg:divide-x lg:text-5xl">
-    <div class="px-10">
+    class="justify-center items-center pt-6 font-moonBold text-white md:text-2xl flex lg:flex-row md:flex-col lg:text-4xl">
+    <div>
       <span>{{ weddingInfo.weddingDate.format("Do") }}</span>
       <span class="p-4">{{ weddingInfo.weddingDate.format("MMMM") }}</span>
       <span>{{ weddingInfo.weddingDate.format("YYYY") }}</span>
     </div>
-    <div class="px-10">
+    <div class="pl-5">
       {{ weddingInfo.ceremonyTime }}
       <span>{{ weddingInfo.isCeremonyInTheEvening ? "p.m." : "a.m." }}</span>
     </div>
