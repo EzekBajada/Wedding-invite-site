@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Output, EventEmitter } from '@angular/core';
-import {faTextHeight, faSortAmountUp} from '@fortawesome/free-solid-svg-icons';
-import {GuestService} from "../../services/guest.service";
+import {
+  faTextHeight,
+  faSortAmountUp,
+} from '@fortawesome/free-solid-svg-icons';
+import { GuestService } from '../../services/guest.service';
 
 @Component({
   selector: 'app-attendance-form',
@@ -11,11 +14,15 @@ import {GuestService} from "../../services/guest.service";
 export class AttendanceFormComponent implements OnInit {
   // Icons
   faText = faTextHeight;
-  faNumbers = faSortAmountUp
+  faNumbers = faSortAmountUp;
 
   form = new FormGroup({
-    name: new FormControl('', [ Validators.required ]),
-    numberOfGuests: new FormControl('', [ Validators.required, Validators.min(1), Validators.max(11) ])
+    name: new FormControl('', [Validators.required]),
+    numberOfGuests: new FormControl('', [
+      Validators.required,
+      Validators.min(1),
+      Validators.max(11),
+    ]),
   });
 
   @Output()
@@ -23,12 +30,12 @@ export class AttendanceFormComponent implements OnInit {
 
   isAttending: boolean = false;
 
-  constructor(private guestService: GuestService) {  }
+  constructor(private guestService: GuestService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   toggleGuestForm(attendance: boolean) {
-      this.isAttending = attendance;
+    this.isAttending = attendance;
   }
 
   get name() {
@@ -42,16 +49,17 @@ export class AttendanceFormComponent implements OnInit {
   onSubmit() {
     this.form.markAllAsTouched();
 
-    if(this.form.valid || (this.name?.valid && !this.isAttending)) {
-      this.guestService.findGuest(this.form.get('name')?.value).subscribe(x=> {
-      })
-      this.form.reset()
+    if (this.form.valid || (this.name?.valid && !this.isAttending)) {
+      this.guestService
+        .findGuest(this.form.get('name')?.value)
+        .subscribe((x) => {});
+      this.form.reset();
       this.isAttendingParent.emit(this.isAttending);
     }
   }
 
   onCancel() {
     this.isAttendingParent.emit(false);
-    this.form.reset()
+    this.form.reset();
   }
 }

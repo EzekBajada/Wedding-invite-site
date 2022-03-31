@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/home/app.component';
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
-import {RouterModule} from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RsvpComponent } from './components/rsvp/rsvp.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
 
@@ -19,7 +19,7 @@ import { AttendanceFormComponent } from './components/attendance-form/attendance
     LoginComponent,
     MainComponent,
     RsvpComponent,
-    AttendanceFormComponent
+    AttendanceFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,10 +29,9 @@ import { AttendanceFormComponent } from './components/attendance-form/attendance
     RouterModule,
     AppRoutingModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [
-  ],
-  bootstrap: [MainComponent]
+  providers: [],
+  bootstrap: [MainComponent],
 })
-export class AppModule1 { }
+export class AppModule1 {}

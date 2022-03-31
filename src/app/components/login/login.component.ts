@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService, FacebookLoginProvider, SocialUser} from 'angularx-social-login';
+import {
+  AuthService,
+  FacebookLoginProvider,
+  SocialUser,
+} from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
-  userData: SocialUser = new SocialUser;
+  userData: SocialUser = new SocialUser();
   resultMessage: string = '';
 
-  constructor( private authService: AuthService ) { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     //some code
@@ -26,7 +29,8 @@ export class LoginComponent implements OnInit {
       (error) => {
         console.log(error);
         this.resultMessage = error;
-      });
+      }
+    );
   }
 
   signOut(): void {

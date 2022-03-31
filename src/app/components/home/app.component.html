@@ -1,25 +1,38 @@
-<!--  Invitation Message-->
-<div class="animate-fade-in-down2 {{this.rsvpTriggered ? 'blur-3xl' : ''}} w-screen h-screen bg-photo bg-cover bg-center">
-    <div class="lg:flex justify-center items-center lg:divide-x text-white font-moonBold lg:text-5xl md:text-2xl ml-6 pt-6">
-        <div class="px-10">{{weddingInfo.bridesName}}
-          <span class="font-moonBold text-2xl">&</span> {{weddingInfo.groomsName}}
-        </div>
-        <div class="px-10">
-          <span>{{weddingInfo.weddingDate.format('Do')}}</span>
-          <span class="p-4">{{weddingInfo.weddingDate.format('MMMM')}}</span>
-          <span>{{weddingInfo.weddingDate.format('YYYY')}}</span>
-        </div>
-        <div class="px-10">{{weddingInfo.ceremonyTime}}
-          <span>{{weddingInfo.isCeremonyInTheEvening ? 'p.m.' : 'a.m.'}}</span>
-        </div>
+<div
+  class="animate-fade-in-down2 {{
+    this.rsvpTriggered ? 'blur-3xl' : ''
+  }} w-screen h-screen bg-photo bg-cover bg-center">
+  <div
+    class="flex items-center justify-center font-bodyLuci text-white md:text-2xl lg:text-5xl">
+    <div class="px-2">{{ weddingInfo.bridesName }}</div>
+    <span class="px-2 font-moonBold text-2xl">&</span>
+    <div class="px-2">{{ weddingInfo.groomsName }}</div>
+  </div>
+  <div
+    class="ml-6 items-center justify-center pt-6 font-moonBold text-white md:text-2xl lg:flex lg:divide-x lg:text-5xl">
+    <div class="px-10">
+      <span>{{ weddingInfo.weddingDate.format("Do") }}</span>
+      <span class="p-4">{{ weddingInfo.weddingDate.format("MMMM") }}</span>
+      <span>{{ weddingInfo.weddingDate.format("YYYY") }}</span>
     </div>
+    <div class="px-10">
+      {{ weddingInfo.ceremonyTime }}
+      <span>{{ weddingInfo.isCeremonyInTheEvening ? "p.m." : "a.m." }}</span>
+    </div>
+  </div>
 
-    <div class="mb-12 p-5 absolute inset-x-0 bottom-0 ">
-      <div class="flex justify-center items-center">
-        <button class="bg-transparent hover:bg-yellow-600 text-white font-moonBold hover:text-white lg:py-4 md:py-2
-          lg:px-8 md:px-4 border border-white hover:border-transparent rounded lg:text-4xl md:text-2xl" (click)="onClick(1)">RSVP</button>
-      </div>
+  <div class="absolute inset-x-0 bottom-0 mb-12 p-5">
+    <div class="flex items-center justify-center">
+      <button
+        class="rounded border border-white bg-transparent font-moonBold text-white hover:border-transparent hover:bg-yellow-600 hover:text-white md:py-2 md:px-4 md:text-2xl lg:py-4 lg:px-8 lg:text-4xl"
+        (click)="onClick(1)">
+        RSVP
+      </button>
     </div>
+  </div>
 </div>
 
-<app-attendance-form *ngIf="rsvpTriggered" (isAttendingParent)="isAttendingTriggered($event)"></app-attendance-form>
+<app-attendance-form
+  *ngIf="rsvpTriggered"
+  (isAttendingParent)="isAttendingTriggered($event)">
+</app-attendance-form>

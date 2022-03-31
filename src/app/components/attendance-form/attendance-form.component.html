@@ -1,26 +1,63 @@
-<div class="justify-center flex items-center absolute top-0 right-0 bottom-0 left-0">
-  <div class="bg-white px-16 py-14 rounded-md font-moonBold text-2xl rounded-3xl">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+<div
+  class="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center"
+>
+  <div
+    class="rounded-md rounded-3xl bg-white px-16 py-14 font-moonBold text-2xl"
+  >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="pb-4">
         <div class="pb-2">
           <label for="name">Name on invite</label>
         </div>
-        <div class="relative flex items-center text-gray-400 focus-within:text-gray-600">
-          <fa-icon class="absolute ml-4 pointer-events-none" [icon]="faText"></fa-icon>
-          <input id="name" type="text" formControlName="name" class="border-2 rounded-2xl p-4 pl-14 {{ name?.invalid && (name?.dirty || name?.touched) ? 'border-red-600' : 'border-black'}}">
+        <div
+          class="relative flex items-center text-gray-400 focus-within:text-gray-600"
+        >
+          <fa-icon
+            class="pointer-events-none absolute ml-4"
+            [icon]="faText"
+          ></fa-icon>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            class="border-2 rounded-2xl p-4 pl-14 {{
+              name?.invalid && (name?.dirty || name?.touched)
+                ? 'border-red-600'
+                : 'border-black'
+            }}"
+          />
         </div>
-        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="text-red-600 text-sm">Name is required</div>
+        <div
+          *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+          class="text-sm text-red-600"
+        >
+          Name is required
+        </div>
       </div>
       <div class="pb-4 text-2xl">
         <p>Are you attending?</p>
         <div class="flex">
           <div>
-            <div class="{{isAttending == null || isAttending == true ?  'bg-green-600' : 'bg-gray-400'}} hover:bg-green-400 text-white font-bold py-2 px-4 rounded-2xl mr-4" (click)="toggleGuestForm(true)">
+            <div
+              class="{{
+                isAttending == null || isAttending == true
+                  ? 'bg-green-600'
+                  : 'bg-gray-400'
+              }} hover:bg-green-400 text-white font-bold py-2 px-4 rounded-2xl mr-4"
+              (click)="toggleGuestForm(true)"
+            >
               Yes
             </div>
           </div>
           <div>
-            <div class="{{isAttending == null || isAttending == false ?  'bg-red-600' : 'bg-gray-400'}} hover:bg-red-400 text-white font-bold py-2 px-4 rounded-2xl" (click)="toggleGuestForm(false)">
+            <div
+              class="{{
+                isAttending == null || isAttending == false
+                  ? 'bg-red-600'
+                  : 'bg-gray-400'
+              }} hover:bg-red-400 text-white font-bold py-2 px-4 rounded-2xl"
+              (click)="toggleGuestForm(false)"
+            >
               No
             </div>
           </div>
@@ -30,25 +67,53 @@
         <div>
           <label for="numberOfGuests">Number Of Guests</label>
         </div>
-        <div class="relative flex items-center text-gray-400 focus-within:text-gray-600">
-          <fa-icon class="absolute ml-4 pointer-events-none" [icon]="faNumbers"></fa-icon>
-          <input id="numberOfGuests" type="number" formControlName="numberOfGuests"
-                 class="border-2 rounded-2xl p-4 pl-14 {{ numberOfGuests?.invalid && (numberOfGuests?.dirty || numberOfGuests?.touched) ? 'border-red-600' : 'border-black'}}">
+        <div
+          class="relative flex items-center text-gray-400 focus-within:text-gray-600"
+        >
+          <fa-icon
+            class="pointer-events-none absolute ml-4"
+            [icon]="faNumbers"
+          ></fa-icon>
+          <input
+            id="numberOfGuests"
+            type="number"
+            formControlName="numberOfGuests"
+            class="border-2 rounded-2xl p-4 pl-14 {{
+              numberOfGuests?.invalid &&
+              (numberOfGuests?.dirty || numberOfGuests?.touched)
+                ? 'border-red-600'
+                : 'border-black'
+            }}"
+          />
         </div>
-        <div *ngIf="numberOfGuests?.invalid && (numberOfGuests?.dirty || numberOfGuests?.touched)" class="text-red-600 text-sm">
-          {{ numberOfGuests?.value == 0 ? 'Number of guests is required' : 'Number of guests cannot be less than 1 and more than 11' }}
+        <div
+          *ngIf="
+            numberOfGuests?.invalid &&
+            (numberOfGuests?.dirty || numberOfGuests?.touched)
+          "
+          class="text-sm text-red-600"
+        >
+          {{
+            numberOfGuests?.value == 0
+              ? "Number of guests is required"
+              : "Number of guests cannot be less than 1 and more than 11"
+          }}
         </div>
-
       </div>
       <div class="flex text-xl">
-        <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-2xl mr-4">
+        <button
+          type="submit"
+          class="mr-4 rounded-2xl bg-green-600 py-2 px-4 font-bold text-white hover:bg-green-400"
+        >
           Submit
         </button>
-        <button class="bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-2xl mr-4" (click)="onCancel()">
+        <button
+          class="mr-4 rounded-2xl bg-red-600 py-2 px-4 font-bold text-white hover:bg-red-400"
+          (click)="onCancel()"
+        >
           Cancel
         </button>
       </div>
     </form>
-
   </div>
 </div>

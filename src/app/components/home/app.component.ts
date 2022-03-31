@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {weddingInfo} from '../../environment/environment'
-import {GuestService} from "../../services/guest.service";
-import {Guest} from "../../models/Guest";
-import {RsvpAction} from "../../models/enums";
-import {WeddingInfo} from "../../models/WeddingInfo";
+import { Component } from '@angular/core';
+import { weddingInfo } from '../../environment/environment';
+import { GuestService } from '../../services/guest.service';
+import { Guest } from '../../models/Guest';
+import { RsvpAction } from '../../models/enums';
+import { WeddingInfo } from '../../models/WeddingInfo';
 
 @Component({
   selector: 'app-root',
@@ -16,21 +16,23 @@ export class AppComponent {
 
   constructor(private guestService: GuestService) {
     this.weddingInfo = weddingInfo;
-    this.guestService.getAllGuests().subscribe((guests)=> {
+    this.guestService.getAllGuests().subscribe((guests) => {
       this.guests = guests;
-    })
+    });
   }
 
   onClick(rsvpAction: RsvpAction) {
     switch (rsvpAction) {
       case RsvpAction.Trigger:
-        this.rsvpTriggered = !this.rsvpTriggered;break;
+        this.rsvpTriggered = !this.rsvpTriggered;
+        break;
       case RsvpAction.Submit:
-        this.rsvpTriggered = !this.rsvpTriggered;break;
+        this.rsvpTriggered = !this.rsvpTriggered;
+        break;
     }
   }
 
   isAttendingTriggered(attending: boolean) {
-     this.rsvpTriggered = false;
+    this.rsvpTriggered = false;
   }
 }
