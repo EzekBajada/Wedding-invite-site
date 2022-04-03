@@ -12,6 +12,7 @@ import { RsvpComponent } from './components/rsvp/rsvp.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AttendanceFormComponent } from './components/attendance-form/attendance
     AppRoutingModule,
     MatDialogModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [MainComponent],

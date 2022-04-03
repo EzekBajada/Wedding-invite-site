@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.2.0",
+    "@angular/animations": "^12.2.16",
     "@angular/cdk": "^12.2.13",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
@@ -25,6 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "angularx-social-login": "^2.2.1",
     "moment": "^2.29.1",
+    "ngx-toastr": "^14.2.2",
     "rxjs": "~6.6.0",
     "tailwindcss": "^2.2.15",
     "tslib": "^2.3.0",

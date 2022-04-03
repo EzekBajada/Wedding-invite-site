@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Output, EventEmitter } from '@angular/core';
-import {
-  faTextHeight,
-  faSortAmountUp,
-} from '@fortawesome/free-solid-svg-icons';
-import { GuestService } from '../../services/guest.service';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {faSortAmountUp, faTextHeight,} from '@fortawesome/free-solid-svg-icons';
+import {GuestService} from '../../services/guest.service';
+import {NotificationService} from "../../services/notification.service";
+import {NotificationType} from "../../models/NotificationMessage";
 
 @Component({
   selector: 'app-attendance-form',
@@ -30,7 +28,7 @@ export class AttendanceFormComponent implements OnInit {
 
   isAttending: boolean = false;
 
-  constructor(private guestService: GuestService) {}
+  constructor(private guestService: GuestService, private notificationService: NotificationService) {}
 
   ngOnInit(): void {}
 
@@ -55,6 +53,11 @@ export class AttendanceFormComponent implements OnInit {
         .subscribe((x) => {});
       this.form.reset();
       this.isAttendingParent.emit(this.isAttending);
+    } else {
+      this.notificationService.sendMessage({
+        message: "Check form again before submitting!",
+        type: NotificationType.error
+      })
     }
   }
 
