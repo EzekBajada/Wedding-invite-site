@@ -1,0 +1,12 @@
+<div class="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center">
+  <div class="flex flex-col bg-green-600 border-green-500 rounded-2xl shadow-md">
+    <div class="flex flex-col items-center justify-center text-white">
+      <fa-icon class="text-5xl pt-10 pb-5 px-10" icon="circle-check"></fa-icon>
+      <p class="text-xl font-moonBold pb-5 px-10" *ngIf="inviteName != ''">Thank you {{inviteName}} !</p>
+      <p class="text-xl font-moonBold pb-5 px-10">RSVP Confirmed!</p>
+    </div>
+    <div class="flex items-center justify-center bg-white p-10 rounded-2xl">
+      <button class="bg-green-600 border-green-500 rounded-2xl shadow-md text-white py-2 px-4 font-moonBold">Ok</button>
+    </div>
+  </div>
+</div>

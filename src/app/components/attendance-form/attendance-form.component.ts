@@ -1,6 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {faSortAmountUp, faTextHeight,} from '@fortawesome/free-solid-svg-icons';
 import {GuestService} from '../../services/guest.service';
 import {NotificationService} from "../../services/notification.service";
 import {NotificationType} from "../../models/NotificationMessage";
@@ -10,10 +9,6 @@ import {NotificationType} from "../../models/NotificationMessage";
   templateUrl: './attendance-form.component.html',
 })
 export class AttendanceFormComponent implements OnInit {
-  // Icons
-  faText = faTextHeight;
-  faNumbers = faSortAmountUp;
-
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
     numberOfGuests: new FormControl('', [
@@ -24,7 +19,10 @@ export class AttendanceFormComponent implements OnInit {
   });
 
   @Output()
-  isAttendingParent = new EventEmitter<boolean>();
+  formSubmittedSuccessfully = new EventEmitter<boolean>();
+
+  @Output()
+  inviteName = new EventEmitter<string>();
 
   isAttending: boolean = false;
 
@@ -49,10 +47,11 @@ export class AttendanceFormComponent implements OnInit {
 
     if (this.form.valid || (this.name?.valid && !this.isAttending)) {
       this.guestService
-        .findGuest(this.form.get('name')?.value)
+        .findGuest(this.name?.value)
         .subscribe((x) => {});
+      this.formSubmittedSuccessfully.emit(this.isAttending);
+      this.inviteName.emit(this.name?.value);
       this.form.reset();
-      this.isAttendingParent.emit(this.isAttending);
     } else {
       this.notificationService.sendMessage({
         message: "Check form again before submitting!",
@@ -62,7 +61,7 @@ export class AttendanceFormComponent implements OnInit {
   }
 
   onCancel() {
-    this.isAttendingParent.emit(false);
+    this.formSubmittedSuccessfully.emit(false);
     this.form.reset();
   }
 }

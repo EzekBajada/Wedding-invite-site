@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { weddingInfo } from '../../environment/environment';
-import { GuestService } from '../../services/guest.service';
-import { Guest } from '../../models/Guest';
 import { RsvpAction } from '../../models/enums';
 import { WeddingInfo } from '../../models/WeddingInfo';
 
@@ -12,13 +10,11 @@ import { WeddingInfo } from '../../models/WeddingInfo';
 export class AppComponent {
   weddingInfo: WeddingInfo;
   rsvpTriggered: boolean = false;
-  guests: Guest[] = [];
+  formSubmittedSuccessfully: boolean = false;
+  inviteName: string = '';
 
-  constructor(private guestService: GuestService) {
+  constructor() {
     this.weddingInfo = weddingInfo;
-    this.guestService.getAllGuests().subscribe((guests) => {
-      this.guests = guests;
-    });
   }
 
   onClick(rsvpAction: RsvpAction) {
@@ -32,7 +28,12 @@ export class AppComponent {
     }
   }
 
-  isAttendingTriggered(attending: boolean) {
+  formSubmitted(status: boolean) {
     this.rsvpTriggered = false;
+    this.formSubmittedSuccessfully = status;
+  }
+
+  inviteNameChanged(name: string){
+    this.inviteName = name;
   }
 }

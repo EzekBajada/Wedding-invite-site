@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/home/app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
@@ -13,6 +13,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
 import { ToastrModule } from 'ngx-toastr';
+import {faArrowUp19, faCircleCheck, faICursor} from "@fortawesome/free-solid-svg-icons";
+import { FormConfirmationComponent } from './components/form-confirmation/form-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
     MainComponent,
     RsvpComponent,
     AttendanceFormComponent,
+    FormConfirmationComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,4 +39,8 @@ import { ToastrModule } from 'ngx-toastr';
   providers: [],
   bootstrap: [MainComponent],
 })
-export class AppModule1 {}
+export class AppModule1 {
+  constructor(iconLibrary: FaIconLibrary) {
+    iconLibrary.addIcons(faArrowUp19, faICursor, faCircleCheck)
+  }
+}

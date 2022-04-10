@@ -4,12 +4,14 @@ import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './components/home/app.component';
 import { RsvpComponent } from './components/rsvp/rsvp.component';
 import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
+import {FormConfirmationComponent} from "./components/form-confirmation/form-confirmation.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: AppComponent },
   { path: 'rsvp', component: RsvpComponent },
   { path: 'form', component: AttendanceFormComponent },
+  { path: 'confirm', component: FormConfirmationComponent },
 ];
 
 @NgModule({
