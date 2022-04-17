@@ -7,7 +7,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="pb-4">
         <div class="pb-2">
-          <label for="name">Name on invite</label>
+          <label for="name">Name & Surname on invite</label>
         </div>
         <div
           class="relative flex items-center text-gray-400 focus-within:text-gray-600"
@@ -27,11 +27,14 @@
             }}"
           />
         </div>
+        <div *ngIf="isRequiredError" class="text-sm text-red-600">
+          Cannot be left empty
+        </div>
         <div
-          *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+          *ngIf="noSurnameError && !isRequiredError"
           class="text-sm text-red-600"
         >
-          Name is required
+          Surname is missing
         </div>
       </div>
       <div class="pb-4">
