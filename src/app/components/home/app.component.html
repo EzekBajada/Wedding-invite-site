@@ -1,15 +1,18 @@
 <div
   class="animate-fade-in-down2 {{
     rsvpTriggered || formSubmittedSuccessfully ? 'blur-3xl' : ''
-  }} w-screen h-screen bg-photo bg-cover bg-center">
+  }} w-screen h-screen bg-photo bg-cover bg-center"
+>
   <div
-    class="pt-8 flex items-center justify-center font-bodyLuci text-white md:text-5xl lg:text-7xl">
+    class="flex items-center justify-center pt-8 font-bodyLuci text-white md:text-5xl lg:text-7xl"
+  >
     <div class="px-2">{{ weddingInfo.bridesName }}</div>
     <span class="px-2 pt-4 font-moonBold text-4xl">&</span>
     <div class="px-2">{{ weddingInfo.groomsName }}</div>
   </div>
   <div
-    class="justify-center items-center pt-6 font-moonBold text-white md:text-2xl flex lg:flex-row md:flex-col lg:text-4xl">
+    class="flex items-center justify-center pt-6 font-moonBold text-white md:flex-col md:text-2xl lg:flex-row lg:text-4xl"
+  >
     <div>
       <span>{{ weddingInfo.weddingDate.format("Do") }}</span>
       <span class="p-4">{{ weddingInfo.weddingDate.format("MMMM") }}</span>
@@ -25,7 +28,8 @@
     <div class="flex items-center justify-center">
       <button
         class="rounded border border-white bg-transparent font-moonBold text-white hover:border-transparent hover:bg-gray-500 hover:text-white md:py-2 md:px-4 md:text-2xl lg:py-4 lg:px-8 lg:text-4xl"
-        (click)="onClick(1)">
+        (click)="onClick()"
+      >
         RSVP
       </button>
     </div>
@@ -35,7 +39,11 @@
 <app-attendance-form
   *ngIf="rsvpTriggered"
   (formSubmittedSuccessfully)="formSubmitted($event)"
-  (inviteName)="inviteNameChanged($event)">
+  (inviteName)="inviteNameChanged($event)"
+>
 </app-attendance-form>
 
-<app-form-confirmation [inviteName]="inviteName" *ngIf="formSubmittedSuccessfully && inviteName != ''"></app-form-confirmation>
+<app-form-confirmation
+  [inviteName]="inviteName"
+  *ngIf="formSubmittedSuccessfully && inviteName != ''"
+></app-form-confirmation>

@@ -1,0 +1,18 @@
+  #version of docker-compose#
+  version: '3'
+
+  #containers which are being built and run#
+  services:
+    #container name to be used while creating#
+    wedding-frontend:
+      #the path of dockerfile to be used#
+      build: .
+      #the ports on which the container be mapped onto#
+      ports:
+        - "8080:80"
+    wedding-backend:
+      #the path of dockerfile to be used#
+      build: ../WeddingInviteSiteBackend/WeddingInviteSite
+      #the ports on which the container be mapped onto#
+      ports:
+        - "8081:80"

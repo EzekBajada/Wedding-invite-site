@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import { WeddingInfo } from '../models/WeddingInfo';
+import { WeddingInfo } from '../WeddingInfo';
 
 export const weddingInfo: WeddingInfo = {
   bridesName: 'Sylvana',
@@ -13,8 +13,6 @@ export const weddingInfo: WeddingInfo = {
   weddingDate: moment('09-09-2022'),
   isCeremonyInTheEvening: true,
 };
-
-export const baseApiUrl = 'http://localhost:5000/';
 
 export const apiUrls = {
   GetAllGuests: 'Guests',

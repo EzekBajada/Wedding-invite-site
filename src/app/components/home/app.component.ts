@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { weddingInfo } from '../../environment/environment';
-import { RsvpAction } from '../../models/enums';
+import { weddingInfo } from '../../models/constants/environment';
 import { WeddingInfo } from '../../models/WeddingInfo';
 
 @Component({
@@ -17,15 +16,8 @@ export class AppComponent {
     this.weddingInfo = weddingInfo;
   }
 
-  onClick(rsvpAction: RsvpAction) {
-    switch (rsvpAction) {
-      case RsvpAction.Trigger:
+  onClick() {
         this.rsvpTriggered = !this.rsvpTriggered;
-        break;
-      case RsvpAction.Submit:
-        this.rsvpTriggered = !this.rsvpTriggered;
-        break;
-    }
   }
 
   formSubmitted(status: boolean) {

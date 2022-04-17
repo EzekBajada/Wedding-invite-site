@@ -4,11 +4,9 @@ import { AppComponent } from './components/home/app.component';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './components/main/main.component';
 import { AppRoutingModule } from './app-routing.module';
-import { RsvpComponent } from './components/rsvp/rsvp.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
@@ -19,9 +17,7 @@ import { FormConfirmationComponent } from './components/form-confirmation/form-c
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     MainComponent,
-    RsvpComponent,
     AttendanceFormComponent,
     FormConfirmationComponent,
   ],

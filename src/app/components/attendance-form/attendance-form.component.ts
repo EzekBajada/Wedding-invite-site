@@ -28,7 +28,11 @@ export class AttendanceFormComponent implements OnInit {
 
   constructor(private guestService: GuestService, private notificationService: NotificationService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.guestService.getAllGuests().subscribe(x=> {
+        console.log(x);
+    })
+  }
 
   toggleGuestForm(attendance: boolean) {
     this.isAttending = attendance;
