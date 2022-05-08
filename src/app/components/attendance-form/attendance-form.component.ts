@@ -10,6 +10,7 @@ import {
 import { GuestService } from '../../services/guest.service';
 import { NotificationService } from '../../services/notification.service';
 import { NotificationType } from '../../models/NotificationMessage';
+import { Guest } from '../../models/Guest';
 
 @Component({
   selector: 'app-attendance-form',
@@ -58,11 +59,21 @@ export class AttendanceFormComponent implements OnInit {
   onSubmit() {
     this.form.markAllAsTouched();
 
+    let nameSplit = this.name?.value.split(' ');
     if (this.form.valid || (this.name?.valid && !this.isAttending)) {
-      this.guestService.findGuest(this.name?.value).subscribe((x) => {});
-      this.formSubmittedSuccessfully.emit(this.isAttending);
-      this.inviteName.emit(this.name?.value);
-      this.form.reset();
+      let guest = <Guest>{
+        name: nameSplit[0],
+        surname: nameSplit[1],
+        isAttending: this.isAttending,
+        numberOfGuests:
+          this.numberOfGuests?.value == '' ? 0 : this.numberOfGuests?.value,
+      };
+
+      this.guestService.upsertGuest(guest).subscribe((guestUpserted) => {
+        this.formSubmittedSuccessfully.emit(this.isAttending);
+        this.inviteName.emit(this.name?.value);
+        this.form.reset();
+      });
     } else {
       this.notificationService.sendMessage({
         message: 'Check form again before submitting!',

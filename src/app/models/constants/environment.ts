@@ -16,5 +16,6 @@ export const weddingInfo: WeddingInfo = {
 
 export const apiUrls = {
   GetAllGuests: 'Guests',
-  FindGuest: 'Guest',
+  FindGuest: 'Guests/Guest',
+  UpsertGuest: 'Guests/UpsertGuest',
 };

@@ -4,14 +4,14 @@
   }} w-screen h-screen bg-photo bg-cover bg-center"
 >
   <div
-    class="flex items-center justify-center pt-8 font-bodyLuci text-white md:text-5xl lg:text-7xl"
+    class="black-text-shadow flex items-center justify-center pt-8 font-bodyLuci text-white drop-shadow-lg md:text-5xl lg:text-7xl"
   >
     <div class="px-2">{{ weddingInfo.bridesName }}</div>
-    <span class="px-2 pt-4 font-moonBold text-4xl">&</span>
+    <span class="px-2 pt-4 font-baskerVille text-4xl">&</span>
     <div class="px-2">{{ weddingInfo.groomsName }}</div>
   </div>
   <div
-    class="flex items-center justify-center pt-6 font-moonBold text-white md:flex-col md:text-2xl lg:flex-row lg:text-4xl"
+    class="black-text-shadow flex items-center justify-center pt-6 font-moonBold text-white md:flex-col md:text-2xl lg:flex-row lg:text-4xl"
   >
     <div>
       <span>{{ weddingInfo.weddingDate.format("Do") }}</span>
@@ -46,4 +46,5 @@
 <app-form-confirmation
   [inviteName]="inviteName"
   *ngIf="formSubmittedSuccessfully && inviteName != ''"
+  (formConfirmed)="formSubmitted($event)"
 ></app-form-confirmation>

@@ -3,4 +3,6 @@ export interface Guest {
   name: string;
   surname: string;
   brideOrGroomSide: string;
+  isAttending: boolean;
+  numberOfGuests: boolean;
 }

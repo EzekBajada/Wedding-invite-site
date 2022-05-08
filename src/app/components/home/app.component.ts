@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   onClick() {
-        this.rsvpTriggered = !this.rsvpTriggered;
+    this.rsvpTriggered = !this.rsvpTriggered;
   }
 
   formSubmitted(status: boolean) {
@@ -25,7 +25,7 @@ export class AppComponent {
     this.formSubmittedSuccessfully = status;
   }
 
-  inviteNameChanged(name: string){
+  inviteNameChanged(name: string) {
     this.inviteName = name;
   }
 }
