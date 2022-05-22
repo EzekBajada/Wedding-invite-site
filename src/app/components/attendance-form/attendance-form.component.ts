@@ -7,6 +7,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { GuestService } from '../../services/guest.service';
 import { NotificationService } from '../../services/notification.service';
 import { NotificationType } from '../../models/NotificationMessage';
@@ -15,6 +16,18 @@ import { Guest } from '../../models/Guest';
 @Component({
   selector: 'app-attendance-form',
   templateUrl: './attendance-form.component.html',
+  animations: [
+    trigger('openClose', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('1s ease-in', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ opacity: 0 }),
+        animate('1s ease-out', style({ opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class AttendanceFormComponent implements OnInit {
   form = new FormGroup({
@@ -70,7 +83,7 @@ export class AttendanceFormComponent implements OnInit {
       };
 
       this.guestService.upsertGuest(guest).subscribe((guestUpserted) => {
-        this.formSubmittedSuccessfully.emit(this.isAttending);
+        this.formSubmittedSuccessfully.emit(true);
         this.inviteName.emit(this.name?.value);
         this.form.reset();
       });
