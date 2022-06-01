@@ -23,7 +23,15 @@
       <span>{{ weddingInfo.isCeremonyInTheEvening ? "p.m." : "a.m." }}</span>
     </div>
   </div>
-
+  <div
+    class="black-text-shadow md:text-1xl flex items-center justify-center pt-6 font-moonBold text-white md:flex-col lg:flex-row lg:text-3xl"
+  >
+    <div class="px-4">
+      {{ weddingInfo.ceremonyVenue }}
+    </div>
+    <div class="px-4">|</div>
+    <div class="px-4">{{ weddingInfo.receptionVenue }}</div>
+  </div>
   <div class="absolute inset-x-0 bottom-0 mb-12 p-5">
     <div class="flex items-center justify-center">
       <button
@@ -32,6 +40,14 @@
       >
         RSVP
       </button>
+    </div>
+    <div
+      class="black-text-shadow flex flex-col items-center justify-center pt-6 italic text-white"
+    >
+      <p>With all that we have we've been truly blessed,</p>
+      <p>Your presence and prayers are all that we request,</p>
+      <p>But if you desire to give nonetheless,</p>
+      <p>Monetary gift is one we suggest.</p>
     </div>
   </div>
 </div>
