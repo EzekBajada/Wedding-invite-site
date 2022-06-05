@@ -3,14 +3,14 @@
 
   #containers which are being built and run#
   services:
-    #container name to be used while creating#
+    # container name to be used while creating#
     wedding-frontend:
       image: ezekielbajada/weddinginvite:frontend
       #the path of dockerfile to be used#
       build: .
       #the ports on which the container be mapped onto#
       ports:
-        - "8080:80"
+        - "80:80"
     wedding-backend:
       image: ezekielbajada/weddinginvite:backend
       #the path of dockerfile to be used#
