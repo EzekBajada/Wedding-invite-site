@@ -8,7 +8,7 @@ export const weddingInfo: WeddingInfo = {
     "We can't wait to share our special day with you. Help us capture our wedding with joy!",
   ceremonyVenue: 'Xaghra Basilica',
   ceremonyTime: '5:00',
-  receptionVenue: 'Alba Terrace',
+  receptionVenue: 'Alba Terrace, Marsalforn Gozo',
   receptionTime: '6:30',
   weddingDate: moment('09-09-2022'),
   isCeremonyInTheEvening: true,
