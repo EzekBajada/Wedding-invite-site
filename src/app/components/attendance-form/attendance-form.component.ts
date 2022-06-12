@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   ValidationErrors,
   ValidatorFn,
   Validators,
@@ -30,12 +30,12 @@ import { Guest } from '../../models/Guest';
   ],
 })
 export class AttendanceFormComponent implements OnInit {
-  form = new FormGroup({
-    name: new FormControl('', [
+  form = new UntypedFormGroup({
+    name: new UntypedFormControl('', [
       Validators.required,
       this.surnameValidator(/\s[a-z]+/),
     ]),
-    numberOfGuests: new FormControl('', [
+    numberOfGuests: new UntypedFormControl('', [
       Validators.required,
       Validators.min(1),
       Validators.max(11),
