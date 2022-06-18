@@ -1,13 +1,15 @@
-<div 
+<div
   class="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center"
 >
-  <div @openClose *ngIf="true"
+  <div
+    @openClose
+    *ngIf="true"
     class="rounded-3xl bg-white font-moonBold md:px-8 md:py-7 md:text-sm lg:px-16 lg:py-14 lg:text-2xl"
   >
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="pb-4">
         <div class="pb-2">
-          <label for="name">Name & Surname on invite</label>
+          <label>Name on invite</label>
         </div>
         <div
           class="relative flex items-center text-gray-400 focus-within:text-gray-600"
@@ -18,7 +20,6 @@
           ></fa-icon>
           <input
             autocomplete="off"
-            id="name"
             type="text"
             formControlName="name"
             class="border-2 rounded-2xl p-4 pl-14 {{
@@ -28,13 +29,33 @@
             }}"
           />
         </div>
-        <div *ngIf="isRequiredError" class="text-sm text-red-600">
-          Cannot be left empty
+        <div *ngIf="isRequiredError(name)" class="text-sm text-red-600">
+          Name is missing
+        </div>
+      </div>
+      <div class="pb-4">
+        <div class="pb-2">
+          <label>Surname on invite</label>
         </div>
         <div
-          *ngIf="noSurnameError && !isRequiredError"
-          class="text-sm text-red-600"
+          class="relative flex items-center text-gray-400 focus-within:text-gray-600"
         >
+          <fa-icon
+            class="pointer-events-none absolute ml-4"
+            icon="i-cursor"
+          ></fa-icon>
+          <input
+            autocomplete="off"
+            type="text"
+            formControlName="surname"
+            class="border-2 rounded-2xl p-4 pl-14 {{
+              surname?.invalid && (surname?.dirty || surname?.touched)
+                ? 'border-red-600'
+                : 'border-black'
+            }}"
+          />
+        </div>
+        <div *ngIf="isRequiredError(surname)" class="text-sm text-red-600">
           Surname is missing
         </div>
       </div>

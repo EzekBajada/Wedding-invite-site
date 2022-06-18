@@ -1,8 +1,8 @@
 export interface Guest {
   guestId: number;
-  name: string;
-  surname: string;
+  name: string | null;
+  surname: string | null;
   brideOrGroomSide: string;
-  isAttending: boolean;
-  numberOfGuests: boolean;
+  isAttending: boolean | null;
+  numberOfGuests: boolean | null;
 }

@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class FormConfirmationComponent implements OnInit {
   @Input()
-  inviteName: string = '';
+  inviteName: string | null = '';
 
   @Output()
   formConfirmed: EventEmitter<boolean> = new EventEmitter<boolean>();

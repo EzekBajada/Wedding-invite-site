@@ -10,7 +10,7 @@ export class AppComponent {
   weddingInfo: WeddingInfo;
   rsvpTriggered: boolean = false;
   formSubmittedSuccessfully: boolean = false;
-  inviteName: string = '';
+  inviteName: string | null = '';
 
   constructor() {
     this.weddingInfo = weddingInfo;
@@ -25,7 +25,7 @@ export class AppComponent {
     this.formSubmittedSuccessfully = status;
   }
 
-  inviteNameChanged(name: string) {
+  inviteNameChanged(name: string | null) {
     this.inviteName = name;
   }
 }

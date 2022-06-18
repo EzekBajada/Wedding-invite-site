@@ -1,10 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   AbstractControl,
-  UntypedFormControl,
-  UntypedFormGroup,
-  ValidationErrors,
-  ValidatorFn,
+  FormControl,
+  FormGroup,
   Validators,
 } from '@angular/forms';
 import { animate, style, transition, trigger } from '@angular/animations';
@@ -30,12 +28,10 @@ import { Guest } from '../../models/Guest';
   ],
 })
 export class AttendanceFormComponent implements OnInit {
-  form = new UntypedFormGroup({
-    name: new UntypedFormControl('', [
-      Validators.required,
-      this.surnameValidator(/\s[a-z]+/),
-    ]),
-    numberOfGuests: new UntypedFormControl('', [
+  form = new FormGroup({
+    name: new FormControl<string>('', [Validators.required]),
+    surname: new FormControl<string>('', [Validators.required]),
+    numberOfGuests: new FormControl<number>(0, [
       Validators.required,
       Validators.min(1),
       Validators.max(11),
@@ -46,7 +42,7 @@ export class AttendanceFormComponent implements OnInit {
   formSubmittedSuccessfully = new EventEmitter<boolean>();
 
   @Output()
-  inviteName = new EventEmitter<string>();
+  inviteName = new EventEmitter<string | null>();
 
   isAttending: boolean = false;
 
@@ -65,21 +61,24 @@ export class AttendanceFormComponent implements OnInit {
     return this.form.get('name');
   }
 
+  get surname() {
+    return this.form.get('surname');
+  }
+
   get numberOfGuests() {
     return this.form.get('numberOfGuests');
   }
 
   onSubmit() {
     this.form.markAllAsTouched();
-
-    let nameSplit = this.name?.value.split(' ');
     if (this.form.valid || (this.name?.valid && !this.isAttending)) {
       let guest = <Guest>{
-        name: nameSplit[0],
-        surname: nameSplit[1],
+        name: this.name?.value,
+        surname: this.surname?.value,
         isAttending: this.isAttending,
-        numberOfGuests:
-          this.numberOfGuests?.value == '' ? 0 : this.numberOfGuests?.value,
+        numberOfGuests: this.numberOfGuests?.value
+          ? 0
+          : this.numberOfGuests?.value,
       };
 
       this.guestService.upsertGuest(guest).subscribe((guestUpserted) => {
@@ -100,30 +99,10 @@ export class AttendanceFormComponent implements OnInit {
     this.form.reset();
   }
 
-  surnameValidator(regExp: RegExp): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const isThereWordAfterSpace = regExp.test(control.value);
-      return !isThereWordAfterSpace
-        ? { noSurname: { value: control.value } }
-        : null;
-    };
-  }
-
-  get isRequiredError() {
+  isRequiredError(controlToCheck: AbstractControl | null) {
     return (
-      this.name?.invalid &&
-      this.name?.errors &&
-      this.name?.errors['required'] &&
-      (this.name?.dirty || this.name?.touched)
-    );
-  }
-
-  get noSurnameError() {
-    return (
-      this.name?.invalid &&
-      this.name?.errors &&
-      this.name?.errors['noSurname'] &&
-      (this.name?.dirty || this.name?.touched)
+      controlToCheck?.invalid &&
+      (controlToCheck?.dirty || controlToCheck.touched)
     );
   }
 }
