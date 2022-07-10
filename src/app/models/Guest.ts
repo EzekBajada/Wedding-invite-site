@@ -4,5 +4,5 @@ export interface Guest {
   surname: string | null;
   brideOrGroomSide: string;
   isAttending: boolean | null;
-  numberOfGuests: boolean | null;
+  numberOfGuests: number | null;
 }

@@ -31,10 +31,10 @@ export class AttendanceFormComponent implements OnInit {
   form = new FormGroup({
     name: new FormControl<string>('', [Validators.required]),
     surname: new FormControl<string>('', [Validators.required]),
-    numberOfGuests: new FormControl<number>(0, [
+    numberOfGuests: new FormControl<number | null>(null, [
       Validators.required,
       Validators.min(1),
-      Validators.max(11),
+      Validators.max(5),
     ]),
   });
 
@@ -76,9 +76,7 @@ export class AttendanceFormComponent implements OnInit {
         name: this.name?.value,
         surname: this.surname?.value,
         isAttending: this.isAttending,
-        numberOfGuests: this.numberOfGuests?.value
-          ? 0
-          : this.numberOfGuests?.value,
+        numberOfGuests: this.numberOfGuests?.value ?? 0,
       };
 
       this.guestService.upsertGuest(guest).subscribe((guestUpserted) => {
