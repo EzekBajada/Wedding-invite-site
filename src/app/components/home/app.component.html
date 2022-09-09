@@ -3,6 +3,8 @@
     rsvpTriggered || formSubmittedSuccessfully ? 'blur-3xl' : ''
   }} w-screen h-screen bg-photo bg-cover bg-center"
 >
+<ng-particles [id]="id" [options]="particlesOptions" [particlesInit]="particlesInit"
+              (particlesLoaded)="particlesLoaded($event)"></ng-particles>
   <div
     class="black-text-shadow flex items-center justify-center pt-8 font-bodyLuci text-white drop-shadow-lg md:text-5xl lg:text-7xl"
   >
@@ -40,11 +42,13 @@
       <button
         class="rounded border border-white bg-transparent font-moonBold text-white hover:border-transparent hover:bg-gray-500 hover:text-white md:py-2 md:px-4 md:text-2xl lg:py-4 lg:px-8 lg:text-4xl"
         (click)="onClick()"
+        *ngif="false"
       >
         RSVP
       </button>
     </div>
     <div
+    *ngif="false"
       class="black-text-shadow flex flex-col items-center justify-center pt-6 italic text-white md:text-sm lg:text-xl"
     >
       <p>With all that we have we've been truly blessed.</p>

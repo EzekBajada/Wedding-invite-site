@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -22,6 +21,7 @@ import {
   faICursor,
 } from '@fortawesome/free-solid-svg-icons';
 import { FormConfirmationComponent } from './components/form-confirmation/form-confirmation.component';
+import { NgParticlesModule } from 'ng-particles';
 
 @NgModule({
   declarations: [
@@ -37,9 +37,9 @@ import { FormConfirmationComponent } from './components/form-confirmation/form-c
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
-    MatDialogModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+    NgParticlesModule
   ],
   providers: [],
   bootstrap: [MainComponent],
